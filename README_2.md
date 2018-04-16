@@ -8,7 +8,7 @@
 
 The goals / steps of this project are the following:
 * In this project I build a CNN, use it to make the 10 classes Image classification
-* First I will do some data preprocessing with [CIFAR 10 Dataset](https://github.com/lc8631058/Image_Classification_with_Multiple_Classes_using_CNN/edit/master/writeup_template.md) and make the data split step
+* First I will do some data preprocessing with [CIFAR 10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html) and make the data split step
 * Then I will play around with different parameters with tiny section of dataset, to try to find the relatively best choice of parameters 
 * Then I will use the training set of processed CIFAR-10 dataset to train my network and at the same time make the validation during training in order to avoid overfitting
 * After training with my network, I will use the saved model to test with test set, and get the final results of my network

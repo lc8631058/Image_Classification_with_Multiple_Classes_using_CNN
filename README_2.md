@@ -1,7 +1,4 @@
-# **Traffic Sign Recognition** 
-
-## Writeup Template
-
+# **Image Classification with Multiple Classes using CNN** 
 ---
 
 **Build a Traffic Sign Recognition Project**

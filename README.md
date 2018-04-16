@@ -118,13 +118,7 @@ My final model results were:
 
 ### Test a Model on New Images
 
-#### 1. Choose five German traffic signs found on the web and provide them in the report. 
-
-Here are five German traffic signs that I found on the web:
-2,  6, 17, 19, 26
-
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+#### 1. Here are the test results: 
 
 The second image might be difficult to classify because as you can see the brightness is very low, it's hard to recognize the sign by eyes. The others should be easier to classify.
 

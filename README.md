@@ -14,7 +14,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/CIFAR-10.jpg"
+[image1]: ./examples/CIFAR-10.jpg "CIFAR-10"
 [image2]: ./examples/after_pre_process.png "Grayscaling"
 [image4]: ./examples/test_1.png "Traffic Sign 1"
 [image5]: ./examples/test_2.png "Traffic Sign 2"

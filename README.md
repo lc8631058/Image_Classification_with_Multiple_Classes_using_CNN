@@ -29,17 +29,14 @@ Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/4
 ---
 ### Writeup / README
 
+This project is accomplished using a [ipyng](https://github.com/lc8631058/Image_Classification_with_Multiple_Classes_using_CNN/blob/master/dlnd_image_classification.ipynb) file, in order to visualize the details.
+
+### 1. Data Set Summary & Exploration
 The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images. Here is some simple samples from this dataset:
 
 ![alt text][image1]
 
-
-You're reading it! and here is a link to my [project code](https://github.com/lc8631058/SDCND/blob/master/P2-Traffic-Sign-Classifier/Traffic_Sign_Classifier.ipynb)
-
-### Data Set Summary & Exploration
-
-I used the pandas library to calculate summary statistics of the traffic
-signs data set:
+I used the pandas library to calculate summary statistics of the CIFAR-10 data set:
 
 * The size of training set is ? 
 ```python
@@ -55,28 +52,17 @@ n_validation = len(X_valid)
 ```python
 n_test = len(X_test)
 ==> 12630
-```
-* The shape of a traffic sign image is ?
-```python
-image_shape = X_train.shape[1:]
-==> (32, 32, 3)
-```
-* The number of unique classes/labels in the data set is ?
-```python
-n_classes = len(set(y_train))
-==> 43
-```
-After that we use `preprocessing.LabelBinarizer()` to convert the labels to one-hot encode form. 
+``` 
 
-#### 2. Include an exploratory visualization of the dataset.
+#### 2. Data Preprocessing.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing the frequncy distribution of each class in out train, validation and test data.
+(1) First we nomalize the RGB data from value range 0 to 255 to range 0-1, this simple step is realized by function `normalize`.
 
-![alt text][image1]
+(2) I use `LabelBinarizer()` from sklearn to implement the `one_hot_encode` function, to realize one hot encode for labels. Just give a Map which includes the classes your labels have, and the `LabelBinarizer` will fit the class by itself.
 
-And we also shuffled all of the datas.So here are some shuffled samples of train data:
+(3) For data randomization, because the images in dataset are already randomized, so it's not necessary to randomize it again.
 
-![alt text][image9]
+(4) The function `preprocess_and_save_data` in helper.py combined all data-preprocessing functions together and after processing it will save the data as pickle file. 
 
 ### Design and Test a Model Architecture
 

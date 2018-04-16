@@ -31,7 +31,7 @@ Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/4
 
 This project is accomplished using a [ipyng](https://github.com/lc8631058/Image_Classification_with_Multiple_Classes_using_CNN/blob/master/dlnd_image_classification.ipynb) file, in order to visualize the details.
 
-### 1. Data Set Summary & Exploration
+### Data Set Summary & Exploration
 The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images. Here is some simple samples from this dataset:
 
 ![alt text][image1]
@@ -54,7 +54,7 @@ n_test = len(X_test)
 ==> 12630
 ``` 
 
-#### 2. Data Preprocessing.
+#### 1. Data Preprocessing.
 
 (1) First we nomalize the RGB data from value range 0 to 255 to range 0-1, this simple step is realized by function `normalize`.
 
@@ -67,47 +67,54 @@ n_test = len(X_test)
 ### Design and Test a Model Architecture
 
 As a first step, I decided to convert the images to grayscale because this can eliminate the effect of colors, but after training, I found that the RGB data have better result than the grayscale data. So finally, I decided to use RGB data. 
-Here is an example of a traffic sign image after normalizing.
 
-![alt text][image2]
+(1) In the functions `neural_net_image_input`, `neural_net_label_input`, `neural_net_keep_prob_input` I set 3 placeholders as the inputs, labels, and keep_probability of dropout layer.
 
-As a last step, I normalized the image data because we can't directly feed raw images to the network, the numbers are too big, so we simply divided by 255.0, to nomalize the pixel values to 0 ~ 1.
+(2) In function `conv2d_maxpool` I implement conv layer and max-pool layer.
 
-I didn't generate additional data because I don't know how to imply these techniches. Maybe later I would update my project.
+(3) Function `flatten` will flatten all the images into one vector~
 
-#### 2. Describe final model architecture.
+(4) Function `fully_conn` realize the final fully connected layer.
+
+(5) And we also have `output` function to generate the final output.
+
+#### 1. Describe final model architecture.
 
 My final model consisted of the following layers:
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | Input         		| 32x32x3 RGB image   							| 
-| Convolution 5x5     	| 1x1 stride, same padding, outputs 32x32x200 	|
+| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x40 	|
 | RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x200 				|
-| Convolution 5x5	    | 1x1 stride, same padding, outputs 32x32x108 	|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x108 				|
-| Fully connected		| 100 hidden units	|
+| Max pooling	      	| 2x2 stride,  outputs 16x16x40 				|
+| Convolution 3x3	    | 1x1 stride, same padding, outputs 32x32x80 	|
 | RELU					|												|
-| Fully connected		| 43 hidden units	|
-| Softmax				| 43 hidden units	|
+| Max pooling	      	| 2x2 stride,  outputs 16x16x80				|
+| Convolution 3x3	    | 1x1 stride, same padding, outputs 32x32x160 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 16x16x160 |
+| Fully connected		| 512 hidden units	|
+| RELU					|												|
+| Fully connected		| 256 hidden units	|
+| RELU					|												|
+| Fully connected		| 128 hidden units	|
+| RELU					|												|
+| Fully connected		| 10 hidden units	|
+| Softmax				| 10 hidden units	|
  
 
 
-#### 3. Describe how you trained your model.
+#### 2. Describe how to train the model.
 
-To train the model, I use the model described in this [paper](https://github.com/lc8631058/SDCND/blob/master/P2-Traffic-Sign-Classifier/Traffic%20Sign%20Recognition%20with%20Multi-Scale%20Convolutional%20Networks.pdf), so I use 2 convlutional layers and 2 fully-connected layers, each convolutional part is composed of convolution, relu, max_pool, batch_normalization, dropout techniche in order. The dropout probability is 0.5, and I add dropout and batch-normalization after each layer except for the last output layer. I set batch_size to 80, cause that's the maximum batch_size that my GPU resource could afford. The number of epochs is 3000, after training for 3000 epochs I will choose the best accuracy as final accuracy, the I will re-train the network for one more time and set it to stop if the accuracy reach to the maximum value once again. As for learning-rate I choose 0.001 by experience.
+To train the model, I use the model described in this [paper](https://github.com/lc8631058/SDCND/blob/master/P2-Traffic-Sign-Classifier/Traffic%20Sign%20Recognition%20with%20Multi-Scale%20Convolutional%20Networks.pdf), so I use 3 convlutional layers and 3 fully-connected layers, each convolutional part is composed of convolution, relu, max_pool, batch_normalization, dropout techniche in order. The dropout probability is 0.5, and I add dropout and batch-normalization after each layer except for the last output layer. I set batch_size to 80, cause that's the maximum batch_size that my GPU resource could afford. As for learning-rate I choose 0.001 by experience.
 
-#### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. 
+#### 4. Describe the approach taken for finding a solution. 
 
 My final model results were:
-* training set accuracy of 100%
-* validation set accuracy of 97.86% 
-* test set accuracy of 97.29%
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-At first I read the [paper](https://github.com/lc8631058/SDCND/blob/master/P2-Traffic-Sign-Classifier/Traffic%20Sign%20Recognition%20with%20Multi-Scale%20Convolutional%20Networks.pdf) and directly use their apporaches. Not all of their approaches, because I'm not familiar with some preprocessing techniques described in this paper, so as a result my accuracy is not so high as theirs.
+* training set accuracy of 85.3%
+* validation set accuracy of 80.5% 
+* test set accuracy of 80.2%
 
 ### Test a Model on New Images
 
@@ -151,7 +158,3 @@ For the first image, the model is relatively sure that this is Dangerous curve t
 | 2.77236813e-05					| End of all speed and passing limits  										|
 | 5.58202373e-06	      			| Pedestrians  					 				|
 | 1.41421299e-06			    | Speed limit (20km/h)         							|
-
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-#### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
-I have encountered some error when dealing with this part, will updated later.

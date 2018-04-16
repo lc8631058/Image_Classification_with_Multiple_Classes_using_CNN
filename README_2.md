@@ -1,6 +1,6 @@
 ---
 
-**Image Classification with Multiple Classes using CNN**
+# **Image Classification with Multiple Classes using CNN**
 
 The goals / steps of this project are the following:
 

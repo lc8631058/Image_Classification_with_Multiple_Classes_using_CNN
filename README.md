@@ -30,6 +30,7 @@ Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/4
 ### Writeup / README
 
 The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images. Here is some simple samples from this dataset:
+
 ![alt text][image1]
 
 

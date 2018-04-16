@@ -41,18 +41,13 @@ I used the pandas library to calculate summary statistics of the CIFAR-10 data s
 * The size of training set is ? 
 ```python
 n_train = len(X_train)
-==> 34799
+==> 60000
 ```
 * The size of the validation set is ?
 ```python
 n_validation = len(X_valid)
-==> 4410
+==> 6000
 ```
-* The size of test set is ?
-```python
-n_test = len(X_test)
-==> 12630
-``` 
 
 #### 1. Data Preprocessing.
 

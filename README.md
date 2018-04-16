@@ -29,7 +29,8 @@ Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/4
 ---
 ### Writeup / README
 
-We used the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) as our dataset, this dataset has been preprocessed as 3 pandas files with uniform image size [32, 32], they are train data, valid data and test data, each data has 'features' and 'labels'.
+The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images. Here is some simple samples from this dataset:
+
 
 
 You're reading it! and here is a link to my [project code](https://github.com/lc8631058/SDCND/blob/master/P2-Traffic-Sign-Classifier/Traffic_Sign_Classifier.ipynb)

@@ -4,6 +4,7 @@
 **Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
+
 * In this project I build a CNN, use it to make the 10 classes Image classification
 * First I will do some data preprocessing with [CIFAR 10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html) and make the data split step
 * Then I will play around with different parameters with tiny section of dataset, to try to find the relatively best choice of parameters 

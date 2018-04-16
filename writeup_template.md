@@ -1,18 +1,14 @@
-## Writeup Template
-### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
 ---
 
-**Vehicle Detection Project**
+**Image Classification with Multiple Classes using CNN**
 
 The goals / steps of this project are the following:
 
-* Perform a Histogram of Oriented Gradients (HOG) feature extraction on a labeled training set of images and train a classifier Linear SVM classifier
-* Optionally, you can also apply a color transform and append binned color features, as well as histograms of color, to your HOG feature vector. 
-* Note: for those first two steps don't forget to normalize your features and randomize a selection for training and testing.
-* Implement a sliding-window technique and use your trained classifier to search for vehicles in images.
-* Run your pipeline on a video stream (start with the test_video.mp4 and later implement on full project_video.mp4) and create a heat map of recurring detections frame by frame to reject outliers and follow detected vehicles.
-* Estimate a bounding box for vehicles detected.
+* In this project I build a CNN, use it to make the 10 classes Image classification
+* First I will do some data preprocessing with [CIFAR 10 Dataset](https://github.com/lc8631058/Image_Classification_with_Multiple_Classes_using_CNN/edit/master/writeup_template.md) and make the data split step
+* Then I will play around with different parameters with tiny section of dataset, to try to find the relatively best choice of parameters 
+* Then I will use the training set of processed CIFAR-10 dataset to train my network and at the same time make the validation during training in order to avoid overfitting
+* After training with my network, I will use the saved model to test with test set, and get the final results of my network
 
 [//]: # (Image References)
 [image1]: ./examples/car_not_car.png

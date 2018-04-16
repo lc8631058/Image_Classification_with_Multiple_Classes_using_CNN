@@ -1,7 +1,7 @@
 # **Image Classification with Multiple Classes using CNN** 
 ---
 
-**Build a Traffic Sign Recognition Project**
+**Build a Image Classification Project**
 
 The goals / steps of this project are the following:
 

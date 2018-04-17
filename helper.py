@@ -62,7 +62,7 @@ def _preprocess_and_save(normalize, one_hot_encode, features, labels, filename):
     Preprocess data and save it to file
     """
     features = normalize(features)
-    print(labels)
+    # print(labels)
     labels = one_hot_encode(labels)
 
     pickle.dump((features, labels), open(filename, 'wb'))

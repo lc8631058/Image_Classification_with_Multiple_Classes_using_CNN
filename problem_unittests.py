@@ -48,9 +48,9 @@ def test_normalize(normalize):
 
 def test_one_hot_encode(one_hot_encode):
     test_shape = np.random.choice(range(1000))
-    print(test_shape)
+    # print(test_shape)
     test_numbers = np.random.choice(range(10), test_shape)
-    print(test_numbers)
+    # print(test_numbers)
     one_hot_out = one_hot_encode(test_numbers)
 
     assert type(one_hot_out).__module__ == np.__name__,\
